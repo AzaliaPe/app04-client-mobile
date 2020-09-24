@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component, Fragment } from 'react';
-import { Button, FlatList, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Button, FlatList, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import HelloWorld from './components/HelloWorld';
 import axios from 'axios';
 
@@ -37,6 +37,15 @@ export default class App extends Component {
       fontWeight: 'bold',
       fontSize: 20,
       paddingTop: 20
+    },
+    button: {
+      alignItems: "center",
+      backgroundColor: "#D76F00",
+      padding: 10,
+    },
+    buttonTitle:{
+      color: 'white',
+      fontWeight: 'bold',
     }
   });
 
@@ -67,7 +76,8 @@ export default class App extends Component {
         <Text style={this.styles.title}>¿Es picante?</Text>
         <Text>{taco.pica}</Text>
       </View>
-      <Button title='Ordenar' onPress={this.callOrder}/>
+      <TouchableOpacity style={this.styles.button} onPress={this.callOrder}><Text style={this.styles.buttonTitle}>ORDENAR</Text>
+      </TouchableOpacity>
     </View>;
   } 
 
