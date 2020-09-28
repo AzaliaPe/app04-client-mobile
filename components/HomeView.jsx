@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import { Text, StyleSheet, TouchableOpacity } from 'react-native';
+import Container from './Container';
 
 export default class HomeView extends Component
 {
@@ -27,16 +28,16 @@ export default class HomeView extends Component
         }
     });
 
-    menuHandle = ()=> console.log('ver menu');
+    menuHandle = ()=> this.props.navigation.push('Menu');
 
     render() {
         return (
-            <Fragment>
+            <Container>
             <Text style={this.styles.title}>El Taquito Feliz</Text>
-            <TouchableOpacity style={this.styles.buttonMenu} onPress={this.menuHandle}>
-                <Text style={this.styles.buttonTitleM}>Ver menú</Text>
-            </TouchableOpacity>
-            </Fragment>
+                <TouchableOpacity style={this.styles.buttonMenu} onPress={this.menuHandle}>
+                    <Text style={this.styles.buttonTitleM}>Ver menú</Text>
+                </TouchableOpacity>
+            </Container>
         );
     }
 }

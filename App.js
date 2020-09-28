@@ -3,17 +3,16 @@ import React, { Component } from 'react';
 import {StyleSheet, View } from 'react-native';
 import Routes from './components/Routes';
 
-export default class App extends Component {
-
+export default class App extends Component 
+{
   styles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: 'white',
-      alignItems: 'stretch',
       justifyContent: 'center',
     }
   });
- 
+
   render() {
     return (
       <View style={this.styles.container}>
@@ -23,6 +22,3 @@ export default class App extends Component {
     );
   }
 }
-
-
-

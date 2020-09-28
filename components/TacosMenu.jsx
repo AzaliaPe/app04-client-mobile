@@ -1,13 +1,11 @@
 import React, { Component, Fragment } from 'react';
-import {StyleSheet, View, Text, Button, ScrollView, FlatList, TouchableOpacity} from 'react-native';
+import {StyleSheet, View, Text, ScrollView, TouchableOpacity} from 'react-native';
 import axios from 'axios';
+import Container from './Container';
 
 export default class TacosMenu extends Component
 { 
     styles = StyleSheet.create({
-        list: { 
-        
-        },
         itemListContainer: {
         marginLeft: 5
         },
@@ -41,6 +39,9 @@ export default class TacosMenu extends Component
         buttonTitle:{
         color: 'white',
         fontWeight: 'bold',
+        },
+        space:{
+            paddingTop: 10
         }
     });
 
@@ -62,7 +63,7 @@ export default class TacosMenu extends Component
     }
 
     renderTacoItem = taco =>{
-        return <View style={this.styles.viewGrid}>
+        return <View key={taco.id} style={this.styles.viewGrid}>
         <View style={this.styles.itemListContainer}>
             <Text style={this.styles.title}>Nombre del taco</Text>
             <Text>{taco.name}</Text>
@@ -76,16 +77,16 @@ export default class TacosMenu extends Component
         </View>;
     } 
 
-    getTacosList = ()=> <FlatList style={this.styles.list} data={this.state.tacos} renderItem={({item}) => this.renderTacoItem(item)}/>;
+    getTacosList = ()=> this.state.tacos.map(taco => this.renderTacoItem(taco));
     
     render() {
         return (
-        <Fragment>
-            <Text style={this.styles.viewTitle}>Menú</Text>
+          <Container>
             <ScrollView style={this.styles.scroll}> 
-            {this.getTacosList()}
+              <View style={this.styles.space}></View>
+              {this.getTacosList()}
             </ScrollView>
-        </Fragment>    
+          </Container>
         );
     }
 }

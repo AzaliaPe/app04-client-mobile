@@ -11,8 +11,8 @@ export default class Routes extends Component
         return (
              <NavigationContainer>
                  <Stack.Navigator>
-                    <Stack.Screen name= 'home' component = {HomeView}/>
-                    <Stack.Screen name= 'menu' component = {TacosMenu}/>
+                    <Stack.Screen name= 'Home' component = {HomeView}/>
+                    <Stack.Screen name= 'Menu' component = {TacosMenu}/>
                  </Stack.Navigator>
              </NavigationContainer>
         );
