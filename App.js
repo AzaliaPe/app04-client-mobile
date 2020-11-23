@@ -5,7 +5,7 @@ import Routes from './components/Routes';
 import {ApolloClient, InMemoryCache, ApolloProvider} from '@apollo/client';
 
 const client = new ApolloClient({
-  uri: "http://localhost:5000/graphql",
+  uri: "http://192.168.2.147:5000/graphql",
   cache: new InMemoryCache()
 });
 
